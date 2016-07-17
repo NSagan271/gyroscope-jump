@@ -1,8 +1,8 @@
 // noprotect
 
 //find window height and width*****************************************
-var h = $(window).height()-10;
-var w=$(window).width()-10;
+var h = $(window).height();
+var w=$(window).width();
 
 //set button and text position*****************************************
 $("#over").css("left",w/2-$('#over').width()/2); //centered
