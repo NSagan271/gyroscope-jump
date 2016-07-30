@@ -70,6 +70,7 @@ var extras={tilt:{now:false,next:true},pause:{now:false,next:true}}; //object al
 
 
 $(window).load(function(){//when window loads
+
   die.load();
   newlev.load();
   up.load();
@@ -538,9 +539,11 @@ function makeBomb(x,y,yVel,xVel){//After level 6, bombs fall from the top of the
 }
   };
 }
-
 function setCookie(cname, cvalue) {//save a cookie******************************************************
-      document.cookie = cname + "=" + cvalue + "; ";
+      var d = new Date();
+      d.setTime(d.getTime() + (10*365*24*60*60*1000));
+      var expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + "; "+expires;
       return "";
 }
 function getCookie(cname){//retrieve a cookie***********************************************************
