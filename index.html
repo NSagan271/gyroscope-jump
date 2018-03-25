@@ -2,54 +2,54 @@
 <html>
 <head>
 
-
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Gyroscope Jump</title>
-  <meta name="description" content="Gyroscope jump: a simple, fun game where you jump onto moving bars to avoid rising water and falling bombs.">
+  <meta name="description" content="Gyroscope Jump: a simple, fun game where you jump onto moving bars to avoid rising water and falling bombs.">
 
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-
-
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
+
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="scripts/player.js"></script>
+  <script type="text/javascript" src="scripts/platform.js"></script>
+  <script type="text/javascript" src="scripts/water.js"></script>
+  <script type="text/javascript" src="scripts/bomb.js"></script>
+  <script type="text/javascript" src="scripts/game.js"></script>
 </head>
 <body>
- <div type="button" id="sound"class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-volume-off"></span> </div>
- <div type="button" id="pause"class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-pause"></span> </div>
- <div id='pauseInst'>ESC <br>to pause</div>
+ <div type="button" id="sound"class="btn btn-primary btn-lg" onclick="toggleSound();"><span class="glyphicon glyphicon-volume-up" ></span> </div>
+ <div type="button" id="pause"class="btn btn-warning btn-lg" onclick="pauseGame();"><span class="glyphicon glyphicon-pause" ></span> </div>
+ <div id='pauseInst'>ESC <br>to <br> pause</div>
+
  <div class="btn-group" id='char'>
   <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Characters
+    Characters  <span class="glyphicon glyphicon-menu-down" ></span>
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" id='rainbow'>Rainbow</a><br>
-    <a class="dropdown-item" id='gray'>Grayscale</a><br>
-    <a class="dropdown-item" id='red'>Red</a><br>
-    <a class="dropdown-item" id='green'>Green</a><br>
-    <a class="dropdown-item" id='blue'>Blue</a><br>
-    <a class="dropdown-item" id='light'>Pastel</a><br>
-    <a class="dropdown-item" id='dark'>Dark</a>
+    <a class="dropdown-item" id='rainbow' onclick="character.setColors(0);">Rainbow</a><br>
+    <a class="dropdown-item" id='gray' onclick="character.setColors(1);">Grayscale</a><br>
+    <a class="dropdown-item" id='red' onclick="character.setColors(2);">Red</a><br>
+    <a class="dropdown-item" id='green' onclick="character.setColors(4);">Green</a><br>
+    <a class="dropdown-item" id='blue'onclick="character.setColors(3);">Blue</a><br>
+    <a class="dropdown-item" id='light' onclick="character.setColors(5);">Pastel</a><br>
+    <a class="dropdown-item" id='dark' onclick="character.setColors(6);">Dark</a>
   </div>
 </div>
-  <h2 id="hide">gyroscope jump gyroscope jump fun game</h2>
   <div id="score">Score: 0</div>
   <div id="hScore">High Score: 0</div>
-  <div type="button"class="btn btn-danger"id='reset'>Reset</div>
-  <div class="inst" id='top'>WASD/ arrow keys; avoid being submerged in the red rising from the bottom (go ↑↑)</div>
-  <div class="inst" id="bottom">appear on the other side→</div>
+  <div class="inst" id='top'>WASD/ arrow keys | Move up!</div>
   <div id='over'>
     <h1 >GAME OVER</h1>
-  <button type="button" id="overbtn"class="btn btn-info btn-lg btn-block">RETRY</button>
+  <button type="button" id="overbtn"class="btn btn-info btn-lg btn-block" onclick="restart();">RETRY</button>
   </div>
 
-  <script type="text/javascript" src="jquery-1.12.0.js"></script>
-  <script type="text/javascript" src="bootstrap.js"></script>
-  <script type="text/javascript" src="script.js"></script>
 </body>
 
 

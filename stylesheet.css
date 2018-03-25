@@ -1,5 +1,10 @@
+html{
+  padding:0px;
+}
 body{
   overflow:hidden;
+  padding:0px;
+  margin:0px;
 }
 div{
   position:absolute;
@@ -14,7 +19,7 @@ h1{
   left:40%;
   font-weight:bolder;
   -webkit-text-stroke-width: 3px;
-   -webkit-text-stroke-color: black;
+   -webkit-text-stroke-color: white;
 
 }
 #score{
@@ -29,13 +34,15 @@ h1{
   -webkit-text-stroke-width: 1px;
    -webkit-text-stroke-color: black;
 }
+
 #pauseInst{
   font-size:20px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: deeppink;
-  -webkit-text-fill-color:yellow;
-   position:absolute;
-   top:50px;
+  color:cyan;
+  background-color: rgba(0,0,0,0.6);
+  position:absolute;
+  left: 0px;
+  top:50px;
+  border-radius:5px;
 }
 #reset{
   left:260px;
@@ -55,19 +62,17 @@ h1{
   position:absolute;
   visibility:hidden;
 }
-.inst{
-  font-size:20px;
-  width:50%;
-  right:230px;
-  text-align:right;
-  color:yellow;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: deeppink;
-  -webkit-text-fill-color:yellow;
+body{
+  height:100%;
 }
-#bottom{
-  bottom:80px;
-  right:50px;
+.inst{
+  font-size:40px;
+  top: 20%;
+  width:100%;
+  text-align:center;
+  color: cyan;
+  background-color: rgba(0,0,0,0.7);
+
 }
 
 #over{
@@ -85,4 +90,10 @@ button{
   position:relative;
   font-size:30px;
   font-weight: bolder;
+}
+a{
+  cursor: pointer;
+  text-decoration: none;
+  padding: 5px;
+
 }
