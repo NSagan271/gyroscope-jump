@@ -413,6 +413,7 @@ function toggleSound(){
 function setCookie(cname, cvalue) {//save a cookie
       var d = new Date();
       d.setTime(d.getTime() + (10*365*24*60*60*1000));
+      document.cookie="";
       var expires = "expires="+ d.toUTCString();
       var ca = document.cookie.split(';');
       var found = false;
@@ -422,16 +423,24 @@ function setCookie(cname, cvalue) {//save a cookie
         if (c.indexOf(cname+"=") === 0){
             ca[i] = cname + "=" + cvalue + "; ";
             found = true;
-            break;
+        }
+        if (c.indexOf("expires=") === 0){
+            ca[i] =  expires;
+            found = true;
         }
       }
       if (found){
         var temp = "";
         for(var i=0; i<ca.length; i++) {
           temp+=ca[i];
+          if (i < ca.length-1)temp+=";";
         }
-        temp = temp + "; "+expires;
         document.cookie = temp;
+        console.log(document.cookie);
+        return "";
+      }
+      if (ca.length > 0){
+        document.cookie = cname + "=" + cvalue + "; " + document.cookie;
         console.log(document.cookie);
         return "";
       }
