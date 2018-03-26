@@ -411,42 +411,11 @@ function toggleSound(){
 }
 
 function setCookie(cname, cvalue) {//save a cookie
-      var d = new Date();
-      d.setTime(d.getTime() + (10*365*24*60*60*1000));
-      document.cookie="";
-      var expires = "expires="+ d.toUTCString();
-      var ca = document.cookie.split(';');
-      var found = false;
-      for(var i=0; i<ca.length; i++) {//check for the given cookie name
-        var c = ca[i];//cookie at index i
-        while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(cname+"=") === 0){
-            ca[i] = cname + "=" + cvalue + "; ";
-            found = true;
-        }
-        if (c.indexOf("expires=") === 0){
-            ca[i] =  expires;
-            found = true;
-        }
-      }
-      if (found){
-        var temp = "";
-        for(var i=0; i<ca.length; i++) {
-          temp+=ca[i];
-          if (i < ca.length-1)temp+=";";
-        }
-        document.cookie = temp;
-        console.log(document.cookie);
-        return "";
-      }
-      if (ca.length > 0){
-        document.cookie = cname + "=" + cvalue + "; " + document.cookie;
-        console.log(document.cookie);
-        return "";
-      }
-      document.cookie = cname + "=" + cvalue + "; " + expires;
-      console.log(document.cookie);
-      return "";
+    var d = new Date();
+    d.setTime(d.getTime() + (10*365*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; "+expires;
+    return "";
 }
 function getCookie(cname){//retrieve a cookie
     var name = cname + "=";
