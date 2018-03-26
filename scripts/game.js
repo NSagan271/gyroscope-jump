@@ -411,8 +411,6 @@ function toggleSound(){
 }
 
 function setCookie(cname, cvalue) {//save a cookie
-  function setCookie(cname, cvalue) {//save a cookie
-
       var d = new Date();
       d.setTime(d.getTime() + (10*365*24*60*60*1000));
       var expires = "expires="+ d.toUTCString();
@@ -440,7 +438,6 @@ function setCookie(cname, cvalue) {//save a cookie
       document.cookie = cname + "=" + cvalue + "; " + expires;
       console.log(document.cookie);
       return "";
-  }
 }
 function getCookie(cname){//retrieve a cookie
     var name = cname + "=";

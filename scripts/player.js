@@ -116,8 +116,9 @@ class Player{
     this.xPlus+=(0.18/(2*Math.sqrt(levelSets)))*(h/1000);//increasing the character's velocity
     this.floor= newFloor;//changing "floor" variable
   }
+  //
   setColors(i){
-    if (i == 1) this.col = ['white','darkslategrey','lightgrey','darkgrey','dimgrey','black','white','darkslategrey','lightgrey','darkgrey','dimgrey','black'];
+    if (i == 1) this.col = ['white','lightgrey','dimgrey','darkgrey','darkslategrey','black','white','lightgrey','dimgrey','darkgrey','darkslategrey','black'];
     else if (i==2) this.col = ['red','magenta','crimson','maroon','orangered','mediumvioletred','red','magenta','crimson','maroon','orangered','mediumvioletred'];
     else if (i == 3) this.col = ['blue','aquamarine','navy','cyan','indigo','skyblue','blue','aquamarine','navy','cyan','indigo','skyblue'];
     else if (i == 4) this.col = ['green','lime','olive','lawngreen','forestgreen','limegreen','green','lime','olive','lawngreen','forestgreen','limegreen'];
