@@ -33,13 +33,13 @@
     Characters  <span class="glyphicon glyphicon-menu-down" ></span>
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" id='rainbow' onclick="character.setColors(0);">Rainbow</a><br>
-    <a class="dropdown-item" id='gray' onclick="character.setColors(1);">Grayscale</a><br>
-    <a class="dropdown-item" id='red' onclick="character.setColors(2);">Red</a><br>
-    <a class="dropdown-item" id='green' onclick="character.setColors(4);">Green</a><br>
-    <a class="dropdown-item" id='blue'onclick="character.setColors(3);">Blue</a><br>
-    <a class="dropdown-item" id='light' onclick="character.setColors(5);">Pastel</a><br>
-    <a class="dropdown-item" id='dark' onclick="character.setColors(6);">Dark</a>
+    <a class="dropdown-item" id='rainbow' onclick="character.setColors(0);setCookie('color',0);">Rainbow</a><br>
+    <a class="dropdown-item" id='gray' onclick="character.setColors(1);setCookie('color',1);">Grayscale</a><br>
+    <a class="dropdown-item" id='red' onclick="character.setColors(2);setCookie('color',2);">Red</a><br>
+    <a class="dropdown-item" id='green' onclick="character.setColors(4);setCookie('color',4);">Green</a><br>
+    <a class="dropdown-item" id='blue'onclick="character.setColors(3);setCookie('color',3);">Blue</a><br>
+    <a class="dropdown-item" id='light' onclick="character.setColors(5);setCookie('color',5);">Pastel</a><br>
+    <a class="dropdown-item" id='dark' onclick="character.setColors(6);setCookie('color',6);">Dark</a>
   </div>
 </div>
   <div id="score">Score: 0</div>

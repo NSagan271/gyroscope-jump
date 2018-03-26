@@ -55,6 +55,8 @@ function init(){
 
   //creating a character
   character= new Player(w,h);
+  var color = getCookie('color');
+  if (color !== '')character.setColors(color);
   platforms = [new Platform(w,h)];
   water = new Water(w,h);
 
@@ -381,7 +383,7 @@ function restart(){//clicking RETRY button
   $("#over").css("visibility","hidden");//hiding GAME OVER text
   $('.inst').css("visibility","visible");//showing instructions
 
-  character=new Player(w,h)
+  character.reset(w,h);
   platforms = [new Platform(w,h)];//new bar/level
   water = new Water(w,h);
   score=0;//reset score
@@ -409,11 +411,36 @@ function toggleSound(){
 }
 
 function setCookie(cname, cvalue) {//save a cookie
-    var d = new Date();
-    d.setTime(d.getTime() + (10*365*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; "+expires;
-    return "";
+  function setCookie(cname, cvalue) {//save a cookie
+
+      var d = new Date();
+      d.setTime(d.getTime() + (10*365*24*60*60*1000));
+      var expires = "expires="+ d.toUTCString();
+      var ca = document.cookie.split(';');
+      var found = false;
+      for(var i=0; i<ca.length; i++) {//check for the given cookie name
+        var c = ca[i];//cookie at index i
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(cname+"=") === 0){
+            ca[i] = cname + "=" + cvalue + "; ";
+            found = true;
+            break;
+        }
+      }
+      if (found){
+        var temp = "";
+        for(var i=0; i<ca.length; i++) {
+          temp+=ca[i];
+        }
+        temp = temp + "; "+expires;
+        document.cookie = temp;
+        console.log(document.cookie);
+        return "";
+      }
+      document.cookie = cname + "=" + cvalue + "; " + expires;
+      console.log(document.cookie);
+      return "";
+  }
 }
 function getCookie(cname){//retrieve a cookie
     var name = cname + "=";

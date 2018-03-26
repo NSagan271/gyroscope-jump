@@ -1,5 +1,9 @@
 class Player{
   constructor(w,h,x,y,xVel){
+    this.reset(w,h,x,y,xVel);
+    this.setColors();
+  }
+  reset(w,h,x,y,xVel){
     if (x) this.x = x;
     else this.x = 0;
     if (y)this.y = y;
@@ -20,7 +24,6 @@ class Player{
     this.over = false;
     this.explodeCount = 1;
     this.deathByBomb = false;
-    this.setColors();
   }
   move(right, left, up, down){
     if (right){
@@ -108,7 +111,8 @@ class Player{
     this.floor+=10;
   }
   newLevel(levelSets, newFloor){
-    this.y+=90;//returning character to proper position (had been previously moved up 90px)
+    this.x+=this.xVel;
+    //this.y+=90;//returning character to proper position (had been previously moved up 90px)
     this.xPlus+=(0.18/(2*Math.sqrt(levelSets)))*(h/1000);//increasing the character's velocity
     this.floor= newFloor;//changing "floor" variable
   }
